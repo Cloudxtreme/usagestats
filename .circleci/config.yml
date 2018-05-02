@@ -31,5 +31,6 @@ jobs:
       - image: circleci/python:3.6
     steps: *default-steps
   test27mac:
-    macos: {}
+    macos:
+      xcode: "8.3.3"
     steps: *default-steps
