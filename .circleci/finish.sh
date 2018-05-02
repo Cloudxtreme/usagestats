@@ -2,7 +2,7 @@
 
 set -eux
 
-case "$TEST_MODE"
+case "${TEST_MODE:-run_tests}"
 in
     coverage)
         codecov

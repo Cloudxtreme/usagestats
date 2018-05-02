@@ -1,0 +1,35 @@
+default-steps: &default-steps
+  - checkout
+  - run: .circleci/install.sh
+  - run: .circleci/test.sh
+  - run: .circleci/finish.sh
+
+version: 2
+jobs:
+  test27cov:
+    docker:
+      - image: circleci/python:2.7
+        environment:
+          TEST_MODE: coverage
+    steps: *default-steps
+  checks:
+    docker:
+      - image: circleci/python:2.7
+        environment:
+          TEST_MODE: check_style
+    steps: *default-steps
+  test26:
+    docker:
+      - image: circleci/python:2.6
+    steps: *default-steps
+  test33:
+    docker:
+      - image: circleci/python:3.3
+    steps: *default-steps
+  test36:
+    docker:
+      - image: circleci/python:3.6
+    steps: *default-steps
+  test27mac:
+    macos: {}
+    steps: *default-steps

@@ -5,7 +5,7 @@ set -eux
 # Update things
 pip install -U setuptools pip
 
-case "$TEST_MODE"
+case "${TEST_MODE:-run_tests}"
 in
     run_tests)
         if [ $TRAVIS_PYTHON_VERSION = "2.6" ]; then pip install unittest2; fi
