@@ -34,3 +34,14 @@ jobs:
     macos:
       xcode: "8.3.3"
     steps: *default-steps
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - checks
+      - test27cov
+      - test26
+      - test33
+      - test36
+      - test27mca
